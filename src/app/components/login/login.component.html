@@ -1,0 +1,39 @@
+
+<section class="loginpage">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-7">
+        <img src="assets/images/BG-login.jpg" class="w-100" alt="demo"/>
+      </div>
+      <div class="col-5 my-5 px-4">
+        <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
+          <div class="w-100 text-center my-4">
+            <img src="assets/images/somaiya-vidyavihar-brand.svg" class="w-50" alt="demo"/>
+            <h4>Welcome to Somaiya MyAccount Portal
+              <br/>
+              Please enter your SVV Net ID & password to Login.<br/><br/></h4>
+          </div>
+          <mat-form-field class="w-100 px-5">
+            <input autofocus type="text" matInput placeholder="Enter Username" formControlName="username">
+            <mat-error *ngIf="loginForm.controls['username'].invalid">
+             Please enter valid email id
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field  class="w-100 px-5 my-4">
+            <input type="password" autocomplete="false" matInput placeholder="Password" formControlName="password">
+            <mat-error *ngIf="!loginForm.controls['password'].valid">
+              Invalid password...!!!
+            </mat-error>
+          </mat-form-field>
+          <section class="w-100 px-5">
+            <mat-checkbox class="example-margin">Remember Me!</mat-checkbox>
+          </section>
+
+          <div class="w-100 text-center my-5">
+            <button type="submit" [disabled]="!loginForm.valid" mat-raised-button color="primary" class="w-25">LOGIN</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
